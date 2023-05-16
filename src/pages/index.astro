@@ -1,9 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro'
+import { Nav } from '../components/Nav'
+import { Form } from '../components/Form';
 ---
 
 <Layout title="Welcome to Astro.">
-	<h1 class="text-3xl font-bold underline">
-    Bitacoras
-  </h1>
+	<Nav client:load />
+  <Form client:load/>
 </Layout>
