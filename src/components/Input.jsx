@@ -1,7 +1,12 @@
+const styles = {
+  input: 'flex flex-col border-b-[3px] border-[#cac7e1] group focus-within:border-[#815af0]',
+  label: 'uppercase text-[#747c91] text-sm font-medium group-focus-within:text-[#815af0]'
+}
+
 export function Input ({ label, type, placeholder, name, value }) {
   return (
-    <div className='flex flex-col border-b-[3px] border-[#cac7e1] group focus-within:border-[#815af0]'>
-      <label htmlFor={name} className='uppercase text-[#747c91] text-sm font-medium group-focus-within:text-[#815af0]'>{label}</label>
+    <div className={styles.input}>
+      <label htmlFor={name} className={styles.label}>{label}</label>
       <input
         type={type}
         name={name}
@@ -14,8 +19,8 @@ export function Input ({ label, type, placeholder, name, value }) {
 
 export function InputSelect ({ name, options, label }) {
   return (
-    <div className='flex flex-col border-b-[3px] border-[#cac7e1] group focus-within:border-[#815af0]'>
-      <label htmlFor={name} className='uppercase text-[#747c91] text-sm font-medium group-focus-within:text-[#815af0]'>{label}</label>
+    <div className={styles.input}>
+      <label htmlFor={name} className={styles.label}>{label}</label>
       <select name={name} className='py-[10px] outline-none text-lg font-medium bg-inherit w-full'>
         <option selected disabled>Marca del equipo</option>
         <option value='z'>Motorola</option>
