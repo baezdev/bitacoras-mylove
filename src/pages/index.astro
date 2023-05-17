@@ -2,9 +2,13 @@
 import Layout from '../layouts/Layout.astro'
 import { Nav } from '../components/Nav'
 import { Form } from '../components/Form';
+import { Welcome } from '../components/Welcom';
 ---
 
 <Layout title="Welcome to Astro.">
 	<Nav client:load />
-  <Form client:load/>
+  <main class='flex max-w-screen-xl mx-auto'>
+    <Welcome />
+    <Form client:load/>
+  </main>
 </Layout>
