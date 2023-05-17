@@ -1,6 +1,6 @@
 const styles = {
-  input: 'flex flex-col border-b-[3px] border-[#cac7e1] group focus-within:border-[#815af0]',
-  label: 'uppercase text-[#747c91] text-sm font-medium group-focus-within:text-[#815af0]'
+  input: 'flex flex-col border-b-2 border-[#cac7e1] group focus-within:border-purple-500',
+  label: 'uppercase text-gray-500 text-sm font-medium group-focus-within:text-purple-600'
 }
 
 export function Input ({ label, type, placeholder, name, value }) {
@@ -11,7 +11,7 @@ export function Input ({ label, type, placeholder, name, value }) {
         type={type}
         name={name}
         value={value}
-        className='py-[10px] outline-none text-lg appearance-none caret-[#815af0] font-medium placeholder:text-[#cac7e1] w-full bg-inherit' placeholder={placeholder}
+        className='py-[10px] outline-none text-lg appearance-none caret-purple-500 font-medium placeholder:text-gray-400 w-full bg-inherit' placeholder={placeholder}
       />
     </div>
   )
