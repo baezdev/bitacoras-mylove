@@ -2,8 +2,7 @@ import { db, doc, setDoc, getDoc } from '../config/firebase.config'
 
 export async function addNewRegister (newRegister) {
   const optionsDate = { month: 'long', year: 'numeric' }
-  const instanceDate = new Date()
-  const getDate = instanceDate.toLocaleDateString(undefined, optionsDate).replace(' de', ',')
+  const getDate = new Date().toLocaleDateString(undefined, optionsDate).replace(' de', ',')
 
   try {
     const docRef = doc(db, 'logbooks', `${getDate}`)
