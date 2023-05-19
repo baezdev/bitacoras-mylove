@@ -3,13 +3,22 @@ import { Input, InputSelect } from './Input'
 import { SaveIcon } from './Icons'
 
 import { brands } from '../data/phoneBrands.json'
+import { addNewRegister } from '../service/logbooks'
 
 export function Form () {
   return (
     <Formik
-      initialValues={{ imei: '', iccid: '', number: '', date: '', brand: '', model: '' }}
-      onSubmit={(values) => {
-        console.log(values)
+      initialValues={{
+        imei: '',
+        iccid: '',
+        number: '',
+        date: '',
+        brand: '',
+        model: ''
+      }}
+      onSubmit={async (values) => {
+        const addRegister = await addNewRegister(values)
+        console.log(addRegister)
       }}
     >
       <FormikForm className='basis-1/2 px-20 py-10 mx-auto bg-white'>

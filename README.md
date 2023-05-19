@@ -2,7 +2,7 @@
 
 ### Requerimientos
 
-[1] - Formulario para ingresar datos de los equipos
+✅[1] - Formulario para ingresar datos de los equipos
   + Imei
   + ICCD
   + Numero de Telefono
@@ -11,7 +11,7 @@
   + Fecha
   (https://dribbble.com/shots/14126196-Contact-Form-01)
 
-[2] - La informacion se envia a una base de datos
+✅[2] - La informacion se envia a una base de datos
 
 [3] - Apartado para ver la lista de equipos (bitacora)
   + Se podra editar y eliminar registros
