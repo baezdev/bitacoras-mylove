@@ -1,4 +1,7 @@
 import { Form as FormikForm, Formik } from 'formik'
+import Toastify from 'toastify-js'
+import 'toastify-js/src/toastify.css'
+
 import { Input, InputSelect } from './Input'
 import { SaveIcon } from './Icons'
 
@@ -18,7 +21,13 @@ export function Form () {
       }}
       onSubmit={async (values) => {
         const addRegister = await addNewRegister(values)
-        console.log(addRegister)
+        Toastify({
+          text: addRegister,
+          style: {
+            background: '#a855f7'
+          },
+          duration: 2000
+        }).showToast()
       }}
     >
       <FormikForm className='basis-1/2 px-20 py-10 mx-auto bg-white'>
@@ -77,7 +86,7 @@ export function Form () {
 export function FormButton ({ children }) {
   return (
     <button
-      className='py-3 px-20 w-fit mt-4 font-semibold text-lg capitalize bg-pink-400 text-white rounded flex items-center gap-1'
+      className='py-3 px-20 w-fit mt-4 font-semibold text-lg capitalize bg-pink-400 text-white rounded flex items-center gap-1 transition-all hover:scale-105 hover:bg-pink-500'
       type='submit'
     >
       {children}
