@@ -24,9 +24,11 @@ export function Form () {
         Toastify({
           text: addRegister,
           style: {
-            background: '#a855f7'
+            background: '#a855f7',
+            borderRadius: '4px'
           },
-          duration: 2000
+          duration: 2000,
+          stopOnFocus: true
         }).showToast()
       }}
     >
