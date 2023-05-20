@@ -1,12 +1,11 @@
 import { Form as FormikForm, Formik } from 'formik'
-import Toastify from 'toastify-js'
-import 'toastify-js/src/toastify.css'
 
 import { Input, InputSelect } from './Input'
 import { SaveIcon } from './Icons'
 
 import { brands } from '../data/phoneBrands.json'
 import { addNewRegister } from '../service/logbooks'
+import { createToast } from '../helpers/toast'
 
 export function Form () {
   return (
@@ -20,16 +19,11 @@ export function Form () {
         model: ''
       }}
       onSubmit={async (values) => {
+        createToast({ message: 'Guardando...', color: 'pink' })
+
         const addRegister = await addNewRegister(values)
-        Toastify({
-          text: addRegister,
-          style: {
-            background: '#a855f7',
-            borderRadius: '4px'
-          },
-          duration: 2000,
-          stopOnFocus: true
-        }).showToast()
+
+        createToast({ message: addRegister, color: 'purple' })
       }}
     >
       <FormikForm className='basis-1/2 px-20 py-10 mx-auto bg-white'>

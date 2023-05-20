@@ -11,7 +11,7 @@ export async function addNewRegister (newRegister) {
       sales: [...sales, newRegister]
     })
 
-    return 'Registro Guardado'
+    return 'Registro Guardado con Exito!'
   } catch (error) {
     return `Error: ${error}`
   }
