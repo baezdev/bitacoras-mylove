@@ -6,46 +6,61 @@ const styles = {
 }
 
 export function Input ({ ...props }) {
-  const [field] = useField(props)
+  const [field, meta] = useField(props)
   const { label, type, name, placeholder } = props
   return (
-    <div className={styles.input}>
-      <label htmlFor={name} className={styles.label}>{label}</label>
-      <input
-        type={type}
-        name={name}
-        placeholder={placeholder}
-        {...props}
-        {...field}
-        className='py-[10px] outline-none text-lg appearance-none caret-purple-500 font-medium placeholder:text-gray-400 w-full bg-inherit'
-      />
+    <div>
+      <div className={styles.input}>
+        <label htmlFor={name} className={styles.label}>{label}</label>
+        <input
+          type={type}
+          name={name}
+          placeholder={placeholder}
+          {...props}
+          {...field}
+          className='py-[10px] outline-none text-lg appearance-none caret-purple-500 font-medium placeholder:text-gray-400 w-full bg-inherit h-12'
+        />
+      </div>
+      {
+        meta.touched && meta.error &&
+          <InputError meta={meta} />
+      }
     </div>
   )
 }
 
 export function InputSelect ({ ...props }) {
-  const [field] = useField(props)
+  const [field, meta] = useField(props)
   const { label, name, options, placeholder } = props
   return (
-    <div className={styles.input}>
-      <label htmlFor={name} className={styles.label}>{label}</label>
-      <select
-        name={name}
-        className='py-[10px] outline-none text-lg font-medium bg-inherit w-full'
-        {...props}
-        {...field}
-        defaultValue='nada'
-      >
-        <option hidden>{placeholder}</option>
-        {options.map(option => (
-          <option
-            key={option}
-            value={option}
-          >
-            {option}
-          </option>
-        ))}
-      </select>
+    <div>
+      <div className={styles.input}>
+        <label htmlFor={name} className={styles.label}>{label}</label>
+        <select
+          name={name}
+          className='py-[10px] outline-none text-lg font-medium bg-inherit w-full h-12'
+          {...props}
+          {...field}
+          defaultValue='nada'
+        >
+          <option hidden>{placeholder}</option>
+          {options.map(option => (
+            <option
+              key={option}
+              value={option}
+            >
+              {option}
+            </option>
+          ))}
+        </select>
+      </div>
+      <InputError meta={meta} />
     </div>
+  )
+}
+
+export function InputError ({ meta }) {
+  return (
+    <span className='mt-1 block font-semibold text-red-500'>{meta.error}</span>
   )
 }
