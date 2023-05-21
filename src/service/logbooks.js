@@ -6,7 +6,7 @@ export async function addNewRegister (newRegister) {
 
   try {
     const docRef = doc(db, 'logbooks', `${getDate}`)
-    const sales = (await getDoc(docRef)).data().sales || []
+    const sales = (await getDoc(docRef)).data()?.sales || []
     await setDoc(docRef, {
       sales: [...sales, newRegister]
     })
