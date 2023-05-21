@@ -21,7 +21,7 @@ export function Nav () {
           <Link to='/'>
             Agregar <AddIcon />
           </Link>
-          <Link to='/'>
+          <Link to='/bitacoras'>
             Bitacoras <BitacoraIcon />
           </Link>
           <div className='md:ml-24 items-center gap-3 justify-end font-medium text-lg flex'>
