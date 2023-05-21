@@ -5,26 +5,31 @@ import { SaveIcon } from './Icons'
 
 import { brands } from '../data/phoneBrands.json'
 import { addNewRegister } from '../service/logbooks'
-import { createToast } from '../helpers/toast'
+import { createToast, validateForm } from '../helpers'
+
+export const initialValues = {
+  imei: '',
+  iccid: '',
+  number: '',
+  date: '',
+  brand: '',
+  model: ''
+}
 
 export function Form () {
+  const handleSubmit = async (values) => {
+    createToast({ message: 'Guardando...', color: 'pink' })
+
+    const addRegister = await addNewRegister(values)
+
+    createToast({ message: addRegister, color: 'purple' })
+  }
+
   return (
     <Formik
-      initialValues={{
-        imei: '',
-        iccid: '',
-        number: '',
-        date: '',
-        brand: '',
-        model: ''
-      }}
-      onSubmit={async (values) => {
-        createToast({ message: 'Guardando...', color: 'pink' })
-
-        const addRegister = await addNewRegister(values)
-
-        createToast({ message: addRegister, color: 'purple' })
-      }}
+      initialValues={initialValues}
+      onSubmit={values => handleSubmit(values)}
+      validationSchema={validateForm}
     >
       <FormikForm className='basis-1/2 px-20 py-10 mx-auto bg-white'>
         <h4 className='text-4xl font-semibold mb-6'>Información de venta</h4>
