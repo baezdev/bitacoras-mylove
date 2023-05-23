@@ -4,7 +4,7 @@ import { Input, InputSelect } from './Input'
 import { SaveIcon } from './Icons'
 
 import { brands } from '../data/phoneBrands.json'
-import { addNewRegister } from '../service/logbooks'
+import { addNewRegister } from '../service/bitacoras'
 import { createToast, validateForm } from '../helpers'
 
 export const initialValues = {
