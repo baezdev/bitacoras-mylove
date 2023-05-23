@@ -16,6 +16,7 @@ export function Input ({ ...props }) {
           type={type}
           name={name}
           placeholder={placeholder}
+          autoComplete='off'
           {...props}
           {...field}
           className='py-[10px] outline-none text-lg appearance-none caret-purple-500 font-medium placeholder:text-gray-400 w-full bg-inherit h-12'
@@ -38,10 +39,10 @@ export function InputSelect ({ ...props }) {
         <label htmlFor={name} className={styles.label}>{label}</label>
         <select
           name={name}
-          className='py-[10px] outline-none text-lg font-medium bg-inherit w-full h-12'
+          className='py-[10px] outline-none text-lg font-medium bg-inherit w-full h-12 capitalize'
           {...props}
           {...field}
-          defaultValue='nada'
+          defaultValue=''
         >
           <option hidden>{placeholder}</option>
           {options.map(option => (
