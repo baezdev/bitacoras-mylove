@@ -1,11 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import { Nav } from '../components/Nav'
+import { BitacorasList } from '../components/BitacorasList';
 ---
 
 <Layout title="Welcome to Astro.">
 	<Nav client:load />
-  <main class='flex max-w-screen-xl mx-auto'>
-    
+  <main class='flex max-w-screen-xl mx-auto py-10'>
+    <BitacorasList client:load />
   </main>
 </Layout>
