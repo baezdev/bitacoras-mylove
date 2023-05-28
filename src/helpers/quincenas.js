@@ -16,14 +16,14 @@ export function splitForQuincenas (quincena, bitacora) {
 
   let result = []
   if (quincena === 1) {
-    const firstQuincena = bitacora.filter(item => {
+    const firstQuincena = bitacora?.filter(item => {
       const day = item.date.split('-')[2]
       return isFirstQuincena(day)
     })
 
     result = firstQuincena
   } else {
-    const secondQuincena = bitacora.filter(item => {
+    const secondQuincena = bitacora?.filter(item => {
       const day = item.date.split('-')[2]
       return isSecondQuincena(day)
     })
@@ -35,5 +35,5 @@ export function splitForQuincenas (quincena, bitacora) {
 }
 
 const sortedForDate = (arr) => {
-  return arr.sort((x, y) => x.date.localeCompare(y.date))
+  return arr?.sort((x, y) => x.date.localeCompare(y.date))
 }
