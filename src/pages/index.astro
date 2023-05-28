@@ -5,9 +5,9 @@ import { Form } from '../components/Form';
 import { Welcome } from '../components/Welcom';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="MyLove Bitacoras">
 	<Nav client:load />
-  <main class='flex max-w-screen-xl mx-auto'>
+  <main class='flex flex-col md:flex-row md:max-w-screen-xl mx-auto w-11/12'>
     <Welcome />
     <Form client:load/>
   </main>

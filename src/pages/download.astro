@@ -1,0 +1,55 @@
+---
+import * as fs from 'fs'
+import * as excel from 'excel4node'
+
+import Layout from '../layouts/Layout.astro'
+
+import { getRegisterByQuincena } from '../service/bitacoras'
+
+import { createContentCells, createTitleCells } from '../helpers'
+
+import { Nav } from '../components/Nav'
+import { ButtonLink } from '../components/ButtonLink'
+
+const { searchParams } = Astro.url
+const quincena = searchParams.get('quincena')
+const month = searchParams.get('date')
+
+const listBitacoras = await getRegisterByQuincena(month, parseInt(quincena))
+
+const workbook = new excel.Workbook()
+const worksheet = workbook.addWorksheet('Bitacora')
+const nameFile = `BitacoraDeBuzzLightyear-${month}-${quincena}.xlsx`
+
+createTitleCells(worksheet, workbook)
+createContentCells(worksheet, workbook, listBitacoras)
+
+workbook.write(nameFile, function(err, stats) {
+  if(err) return console.log(err)
+
+  const routeFile = new URL('../../', import.meta.url).pathname.toString().replace('/', '')
+  const routeDestination = new URL('../../public/bitacoras', import.meta.url).pathname.toString().replace('/', '')
+  
+  fs.rename(`${routeFile}${nameFile}`, `${routeDestination}/${nameFile}`, (err) => {
+    if (err) {
+    console.error(err);
+    } else {
+      console.log('Archivo movido exitosamente.');
+    }
+  })
+})
+
+/* return Astro.redirect('/bitacoras') */
+---
+<Layout title="Archivo listo">
+  <Nav client:load />
+  <main class='flex max-w-screen-xl mx-auto py-10 items-center justify-center'>
+    <div class="flex items-center gap-10 flex-col">
+      <h4 class="capitalize text-2xl md:text-4xl font-medium text-center">Su archivo se genero con exito</h4>
+      <ButtonLink href={`/bitacoras/${nameFile}`} download={nameFile}>
+        Descargar Excel
+      </ButtonLink>
+    </div>
+  </main>
+  
+</Layout>
