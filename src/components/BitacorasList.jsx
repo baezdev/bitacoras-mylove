@@ -5,7 +5,7 @@ export function BitacorasList () {
   const { listBitacoras, loading } = useBitacoras()
 
   return (
-    <ul className='mx-auto w-3/4 flex flex-col gap-5'>
+    <ul className='mx-auto py-2 md:py-0 md:w-3/4 flex flex-col gap-5'>
       {
         !loading
           ? (
@@ -13,7 +13,7 @@ export function BitacorasList () {
                 <BitacoraItem key={item} bitacora={item} />
               ))
             )
-          : <p className='capitalize text-4xl font-medium text-center'>Cargando...</p>
+          : <p className='capitalize text-2xl md:text-4xl font-medium text-center'>Cargando...</p>
       }
     </ul>
   )
