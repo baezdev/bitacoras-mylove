@@ -17,7 +17,7 @@ export function splitForQuincenas (quincena, bitacora) {
   let result = []
   if (quincena === 1) {
     const firstQuincena = bitacora?.filter(item => {
-      const day = item.date.split('-')[2]
+      const day = item?.date?.split('-')[2]
       return isFirstQuincena(day)
     })
 

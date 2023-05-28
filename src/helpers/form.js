@@ -14,9 +14,9 @@ export function validateForm () {
       .min(10, 'Deben ser 10 digitos')
       .max(10, 'Deben ser 10 digitos')
       .required('Campo obligatorio'),
-    date: Yup.date()
-      .required('Campo obligatorio')
-      .max(new Date(), 'Alto ahi viajero del tiempo'),
+    date: Yup.string()
+      .required('Campo obligatorio'),
+    /* .max(new Date(), 'Alto ahi viajero del tiempo') */
     brand: Yup.string()
       .required('Campo obligatorio'),
     model: Yup.string()

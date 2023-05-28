@@ -1,9 +1,8 @@
 import { initializeApp } from 'firebase/app'
 import { getFirestore, doc, setDoc, getDoc, collection, getDocs } from 'firebase/firestore'
-/* import { getAnalytics } from 'firebase/analytics' */
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBF6JuXGCMHKHvrnJL2yjhNI7pa0NlRQO4',
+  apiKey: import.meta.env.PUBLIC_FIREBASE_KEY,
   authDomain: 'mylove-bitacoras.firebaseapp.com',
   projectId: 'mylove-bitacoras',
   storageBucket: 'mylove-bitacoras.appspot.com',

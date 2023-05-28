@@ -19,9 +19,10 @@ export const initialValues = {
 export function Form () {
   const handleSubmit = async (values) => {
     createToast({ message: 'Guardando...', color: 'pink' })
+    console.log(values)
 
     const addRegister = await addNewRegister(values)
-
+    console.log(addRegister)
     createToast({ message: addRegister, color: 'purple' })
 
     makeConfetti()

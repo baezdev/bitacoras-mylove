@@ -68,9 +68,9 @@ export function createContentCells (worksheet, workbook, data) {
     const { imei, iccid, number, brand, model, date } = registerData
 
     worksheet.cell(i + 2, 1).number(i + 1).style(style)
-    worksheet.cell(i + 2, 2).number(imei).style(style)
-    worksheet.cell(i + 2, 3).number(iccid).style(style)
-    worksheet.cell(i + 2, 4).number(number).style(style)
+    worksheet.cell(i + 2, 2).number(Number(imei)).style(style)
+    worksheet.cell(i + 2, 3).number(Number(iccid)).style(style)
+    worksheet.cell(i + 2, 4).number(Number(number)).style(style)
     worksheet.cell(i + 2, 5).string(`${brand} ${model}`.toUpperCase()).style(style)
     worksheet.cell(i + 2, 6).string(date).style(style)
     worksheet.cell(i + 2, 7).string('RODRÍGUEZ NARANJO ARIANA BELEM').style(style)
