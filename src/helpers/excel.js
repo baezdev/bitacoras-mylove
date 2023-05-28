@@ -64,7 +64,7 @@ export function createContentCells (worksheet, workbook, data) {
     numberFormat: '###0'
   })
 
-  data.forEach((registerData, i) => {
+  data?.forEach((registerData, i) => {
     const { imei, iccid, number, brand, model, date } = registerData
 
     worksheet.cell(i + 2, 1).number(i + 1).style(style)
