@@ -3,7 +3,7 @@ import { getFirestore, doc, setDoc, getDoc, collection, getDocs } from 'firebase
 /* import { getAnalytics } from 'firebase/analytics' */
 
 const firebaseConfig = {
-  apiKey: import.meta.env.PUBLIC_FIREBASE_KEY,
+  apiKey: 'AIzaSyBF6JuXGCMHKHvrnJL2yjhNI7pa0NlRQO4',
   authDomain: 'mylove-bitacoras.firebaseapp.com',
   projectId: 'mylove-bitacoras',
   storageBucket: 'mylove-bitacoras.appspot.com',
