@@ -22,7 +22,6 @@ export function Form () {
     console.log(values)
 
     const addRegister = await addNewRegister(values)
-    console.log(addRegister)
     createToast({ message: addRegister, color: 'purple' })
 
     makeConfetti()
@@ -44,10 +43,11 @@ export function Form () {
             placeholder='Deben ser 15 números'
           />
           <Input
-            type='number'
+            type='text'
             name='iccid'
             label='iccid'
             placeholder='Deben ser 19 números'
+            inputMode='numeric'
           />
           <div className='grid grid-cols-2 gap-3'>
             <Input
